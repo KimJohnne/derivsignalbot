@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  :root {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+    
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Dark-themed dashboard colors for trading UI */
+    --dark-blue: 222 47% 5%;
+    --dark-gray: 215 28% 11%;
+    --medium-gray: 215 20% 15%;
+    --light-gray: 214 16% 21%;
+    --text-primary: 210 40% 98%;
+    --text-secondary: 213 14% 63%;
+    
+    --accent-blue: 212 100% 61%;
+    --accent-green: 142 76% 36%;
+    --accent-red: 359 96% 65%;
+    --accent-yellow: 25 95% 58%;
+    --accent-purple: 274 69% 70%;
+    
+    --hover-overlay: 214 8% 73% / 0.12;
+    
+    /* Chart colors */
+    --chart-1: 212 100% 61%;
+    --chart-2: 142 76% 36%;
+    --chart-3: 359 96% 65%;
+    --chart-4: 25 95% 58%;
+    --chart-5: 274 69% 70%;
+
+    /* Radius */
+    --radius: 0.5rem;
+  }
+}
+
+/* Trading UI-specific classes */
+.chart-container {
+  height: 300px;
+  position: relative;
+}
+
+.signal-badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
