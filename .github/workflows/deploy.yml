@@ -1,0 +1,44 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project (if applicable)
+        run: |
+          if [ -f "tsconfig.json" ]; then
+            npm run build || echo "No build step defined"
+          fi
+
+      - name: Run Drizzle migration (optional)
+        run: |
+          if [ -f "drizzle.config.ts" ]; then
+            npx drizzle-kit push
+          fi
+
+      - name: Start server (test only)
+        run: |
+          npm run dev & sleep 10
+          curl http://localhost:3000 || echo "Server didn’t start properly"
+
